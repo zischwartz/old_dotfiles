@@ -3,5 +3,9 @@
 [user]
 	email = zischwartz@gmail.com
 	name = Zach Schwartz
+[core]
+	excludesfile = ~/.git-ignore-global
+
 [alias]
     ac = !git add -A && git commit
+	psom = push origin master
