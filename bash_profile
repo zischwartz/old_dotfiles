@@ -47,7 +47,3 @@ source ~/.git-prompt.sh
 
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-# Added by Canopy installer on 2013-09-08
-# VIRTUAL_ENV_DISABLE_PROMPT can be set to '' to make bashprompt show that Canopy is active, otherwise 1
-VIRTUAL_ENV_DISABLE_PROMPT=1 source /Users/zschwartz/Library/Enthought/Canopy_64bit/User/bin/activate
