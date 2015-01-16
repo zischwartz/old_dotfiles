@@ -28,6 +28,7 @@ alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
 alias serve='python -m SimpleHTTPServer'
 alias sserve='twistd -n web -p 8887 --path .'
 
+alias vgs='vagrant global-status'
 
 function rm () {
   local path
