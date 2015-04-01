@@ -6,6 +6,18 @@ alias workerstage="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.86
 alias workerprod="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.164.101.249"
 alias workerbeta="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.173.233.166"
 
+
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/zach/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+
+alias dockerkillall='docker kill $(docker ps -q)'
+alias dockercleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
+alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
+
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 echo "set completion-ignore-case On" >> ~/.inputrc
 
 export CLICOLOR=1

@@ -10,3 +10,5 @@
   ac = !git add -A && git commit
 	psom = push origin master
 	plo = pull origin
+[push]
+	default = simple
