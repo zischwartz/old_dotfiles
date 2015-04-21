@@ -8,7 +8,7 @@
 
 [alias]
   ac = !git add -A && git commit
-	psom = push origin master
+	pom = push origin master
 	plo = pull origin
 [push]
-	default = simple
+	default = current
