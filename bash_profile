@@ -12,6 +12,8 @@ export DOCKER_CERT_PATH=/Users/zach/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 
 alias dockerkillall='docker kill $(docker ps -q)'
+alias dockerrmlast='docker rm -f  $(docker ps -aq | head -1)'
+alias dockerloglast='docker logs -f  $(docker ps -q | head -1)'
 alias dockercleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
 alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
 
