@@ -23,8 +23,6 @@ export PATH=$PATH:$GOPATH/bin
 export GOREILLY="src/github.com/oreillymedia"
 alias goreilly="cd $GOPATH/$GOREILLY"
 
-echo "set completion-ignore-case On" >> ~/.inputrc
-
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
