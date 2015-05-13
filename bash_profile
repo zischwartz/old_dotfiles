@@ -7,7 +7,9 @@ alias workerprod="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.164
 alias workerbeta="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.173.233.166"
 
 
+# export DOCKER_HOST=tcp://192.168.59.103:2375
 export DOCKER_HOST=tcp://192.168.59.103:2376
+# export DOCKER_CERT_PATH=/Users/zach/.docker/boot2docker-vm
 export DOCKER_CERT_PATH=/Users/zach/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 
