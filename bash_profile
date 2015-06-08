@@ -28,7 +28,8 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 
 # PS1="\n\e[0;33m\w\e[m\n\u@\h  sez:\n"
-PS1='\n\e[0;33m\w\e[m\n\u@\h $(__git_ps1 "(on \e[0;35m\]%s\[\e[0m\]) ")sez:\n'
+PS1='\n\e[0;33m\w\e[m\n\[\033[38;5;37m\]\@\[$(tput sgr0)\] \u@\h$(__git_ps1 " (on \e[0;35m\]%s\[\e[0m\])"):\n'
+# PS1='\n\e[0;33m\w\e[m\n\u@\h $(__git_ps1 "(on \e[0;35m\]%s\[\e[0m\]) ")sez:\n'
 # PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
 git config --global color.ui true
@@ -38,7 +39,7 @@ alias s="git status -s"
 alias ls='ls -F'
 alias ll='ls -l -h'
 alias la='ls -a'
-alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
+alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 
 alias serve='python -m SimpleHTTPServer'
 alias sserve='twistd -n web -p 8887 --path .'
