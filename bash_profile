@@ -1,48 +1,31 @@
+# you can set up aliases for common things
+# it's super easy
 alias orbot="ssh -i ~/.ssh/atlas/orbot_keypair.pem ubuntu@54.174.14.69"
-alias contentloader="ssh -i ~/.ssh/atlas/orbot_keypair.pem ubuntu@54.86.226.133"
-alias gitprod="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.84.204.203"
-alias gitdev="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.84.249.148"
-alias workerstage="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.86.237.24"
-alias workerprod="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.164.101.249"
-alias workerbeta="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.173.233.166"
 
-# eval "$(docker-machine env docker-vm)"
-
-alias dockerkillall='docker kill $(docker ps -q)'
-alias dockerrmlast='docker rm -f  $(docker ps -aq | head -1)'
-alias dockerloglast='docker logs -f  $(docker ps -q | head -1)'
-alias dockercleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
-alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
-
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-
-export GOREILLY="src/github.com/oreillymedia"
-alias goreilly="cd $GOPATH/$GOREILLY"
-
+# COLORS !
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-
-
-# PS1="\n\e[0;33m\w\e[m\n\u@\h  sez:\n"
-PS1='\n\e[0;33m\w\e[m\n\[\033[38;5;37m\]\@\[$(tput sgr0)\] \u@\h$(__git_ps1 " (on \e[0;35m\]%s\[\e[0m\])"):\n'
-# PS1='\n\e[0;33m\w\e[m\n\u@\h $(__git_ps1 "(on \e[0;35m\]%s\[\e[0m\]) ")sez:\n'
-# PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
-
+PS1='\n\e[0;33m\w\e[m\n\u@\h: '
 git config --global color.ui true
-alias gitlg="git log --pretty=format:'%C(yellow)%h%Cred%d%Creset - %C(cyan)%an %Creset: %s %Cgreen(%cr)'"
 
-alias s="git status -s"
+
 alias ls='ls -F'
 alias ll='ls -l -h'
 alias la='ls -a'
+
+# super useful git log view
+alias gitlg="git log --pretty=format:'%C(yellow)%h%Cred%d%Creset - %C(cyan)%an %Creset: %s %Cgreen(%cr)'"
+alias s="git status -s"
+
+# may require adjustment, but can be used like `subl .`
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 
+# serve files from your current location
 alias serve='python -m SimpleHTTPServer'
+# same thing, more performant, installed by default on a mac
 alias sserve='twistd -n web -p 8887 --path .'
 
-alias vgs='vagrant global-status'
-
+# move things to trash instead of actualyl rm-ing, works on dirs
 function rm () {
   local path
   for path in "$@"; do
@@ -58,21 +41,3 @@ function rm () {
     fi
   done
 }
-
-GIT_PS1_SHOWDIRTYSTATE=true
-GIT_PS1_SHOWUNTRACKEDFILES=true
-source ~/.git-completion.sh
-# from https://github.com/git/git/tree/master/contrib/completion
-source ~/.git-prompt.sh
-# https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
-
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
