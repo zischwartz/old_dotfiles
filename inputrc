@@ -16,3 +16,4 @@ set completion-query-items 200
 # Show extra file information when completing, like `ls -F` does
 set visible-stats onset completion-ignore-case On
 
+

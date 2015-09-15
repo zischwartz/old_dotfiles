@@ -6,12 +6,7 @@ alias workerstage="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.86
 alias workerprod="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.164.101.249"
 alias workerbeta="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.173.233.166"
 
-
-# export DOCKER_HOST=tcp://192.168.59.103:2375
-export DOCKER_HOST=tcp://192.168.59.103:2376
-# export DOCKER_CERT_PATH=/Users/zach/.docker/boot2docker-vm
-export DOCKER_CERT_PATH=/Users/zach/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
+# eval "$(docker-machine env docker-vm)"
 
 alias dockerkillall='docker kill $(docker ps -q)'
 alias dockerrmlast='docker rm -f  $(docker ps -aq | head -1)'
@@ -73,3 +68,11 @@ source ~/.git-prompt.sh
 
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
