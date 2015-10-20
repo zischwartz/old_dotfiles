@@ -6,7 +6,13 @@ alias workerstage="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.86
 alias workerprod="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.164.101.249"
 alias workerbeta="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.173.233.166"
 
-# eval "$(docker-machine env docker-vm)"
+alias dms='docker-machine start dev'
+alias dme='eval "$(docker-machine env dev)"'
+alias dmi='docker-machine ip dev'
+
+# ORM WORK SPECIFIC
+export RACKSPACE_USERNAME=makerpressadmin
+export RACKSPACE_APIKEY=39a15325f2e67a3ff68d59b76f990616
 
 alias dockerkillall='docker kill $(docker ps -q)'
 alias dockerrmlast='docker rm -f  $(docker ps -aq | head -1)'
