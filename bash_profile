@@ -14,8 +14,8 @@ alias dmi='docker-machine ip dev'
 export PATH=$PATH:~/bin
 
 # ORM WORK SPECIFIC
-export RACKSPACE_USERNAME=makerpressadmin
-export RACKSPACE_APIKEY=8b0fbb4d749c460b9e3fc43f41ef2142
+export CARINA_USERNAME=makerpressadmin
+export CARINA_APIKEY=8b0fbb4d749c460b9e3fc43f41ef2142
 
 alias dockerkillall='docker kill $(docker ps -q)'
 alias dockerrmlast='docker rm -f  $(docker ps -aq | head -1)'
@@ -32,6 +32,15 @@ alias goreilly="cd $GOPATH/$GOREILLY"
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
+# from http://superuser.com/a/819222
+# and http://stackoverflow.com/a/26132452/83859
+# for docker tag completion
+if [ -f `brew --prefix`/etc/bash_completion ]; then 
+    . `brew --prefix`/etc/bash_completion 
+fi
+
+# more docker fun times
+source /Users/zach/.dvm/dvm.sh
 
 # PS1="\n\e[0;33m\w\e[m\n\u@\h  sez:\n"
 PS1='\n\e[0;33m\w\e[m\n\[\033[38;5;37m\]\@\[$(tput sgr0)\] \u@\h$(__git_ps1 " (on \e[0;35m\]%s\[\e[0m\])"):\n'
