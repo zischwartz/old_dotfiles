@@ -1,14 +1,25 @@
-alias orbot="ssh -i ~/.ssh/atlas/orbot_keypair.pem ubuntu@54.174.14.69"
-alias contentloader="ssh -i ~/.ssh/atlas/orbot_keypair.pem ubuntu@54.86.226.133"
-alias gitprod="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.84.204.203"
-alias gitdev="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.84.249.148"
-alias workerstage="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.86.237.24"
-alias workerprod="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.164.101.249"
-alias workerbeta="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.173.233.166"
 
-alias dms='docker-machine restart dev && dme && echo "~docker machine env set, ip copied to clipboard!" && dmi | pbcopy'
+alias ls='ls -F'
+alias ll='ls -l -h'
+alias la='ls -a'
+alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+
+alias serve='python -m SimpleHTTPServer'
+alias sserve='twistd -n web -p 8887 --path .'
+
+
+# docker stuff
+alias dmstart='docker-machine restart dev && dme && echo "🌊 🐋 Docker machine env set. IP copied to clipboard. " && dmi | pbcopy'
 alias dme='eval "$(docker-machine env dev)"'
 alias dmi='docker-machine ip dev'
+alias dms='docker-machine status dev'
+
+alias dockerkillall='docker kill $(docker ps -q)'
+alias dockerrmlast='docker rm -f  $(docker ps -aq | head -1)'
+alias dockerloglast='docker logs -f  $(docker ps -q | head -1)'
+alias dockercleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
+alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
+
 
 # my own bin!
 export PATH=$PATH:~/bin
@@ -17,17 +28,13 @@ export PATH=$PATH:~/bin
 export CARINA_USERNAME=makerpressadmin
 export CARINA_APIKEY=8b0fbb4d749c460b9e3fc43f41ef2142
 
-alias dockerkillall='docker kill $(docker ps -q)'
-alias dockerrmlast='docker rm -f  $(docker ps -aq | head -1)'
-alias dockerloglast='docker logs -f  $(docker ps -q | head -1)'
-alias dockercleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
-alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
 export GOREILLY="src/github.com/oreillymedia"
 alias goreilly="cd $GOPATH/$GOREILLY"
+alias zo="cd $GOPATH/src/github.com/zischwartz"
 
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
@@ -42,6 +49,8 @@ fi
 # more docker fun times
 source /Users/zach/.dvm/dvm.sh
 
+dvm use 1.9.0
+
 # PS1="\n\e[0;33m\w\e[m\n\u@\h  sez:\n"
 PS1='\n\e[0;33m\w\e[m\n\[\033[38;5;37m\]\@\[$(tput sgr0)\] \u@\h$(__git_ps1 " (on \e[0;35m\]%s\[\e[0m\])"):\n'
 # PS1='\n\e[0;33m\w\e[m\n\u@\h $(__git_ps1 "(on \e[0;35m\]%s\[\e[0m\]) ")sez:\n'
@@ -51,13 +60,6 @@ git config --global color.ui true
 alias gitlg="git log --pretty=format:'%C(yellow)%h%Cred%d%Creset - %C(cyan)%an %Creset: %s %Cgreen(%cr)'"
 
 alias s="git status -s"
-alias ls='ls -F'
-alias ll='ls -l -h'
-alias la='ls -a'
-alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-
-alias serve='python -m SimpleHTTPServer'
-alias sserve='twistd -n web -p 8887 --path .'
 
 alias vgs='vagrant global-status'
 
@@ -84,7 +86,6 @@ source ~/.git-completion.sh
 source ~/.git-prompt.sh
 # https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
 
-
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 ### Added by the Heroku Toolbelt
@@ -92,5 +93,12 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
+
+alias orbot="ssh -i ~/.ssh/atlas/orbot_keypair.pem ubuntu@54.174.14.69"
+alias contentloader="ssh -i ~/.ssh/atlas/orbot_keypair.pem ubuntu@54.86.226.133"
+alias gitprod="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.84.204.203"
+alias gitdev="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.84.249.148"
+alias workerstage="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.86.237.24"
+alias workerprod="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.164.101.249"
+alias workerbeta="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.173.233.166"
