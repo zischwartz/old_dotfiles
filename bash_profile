@@ -52,7 +52,7 @@ source /Users/zach/.dvm/dvm.sh
 dvm use 1.9.0
 
 # PS1="\n\e[0;33m\w\e[m\n\u@\h  sez:\n"
-PS1='\n\e[0;33m\w\e[m\n\[\033[38;5;37m\]\@\[$(tput sgr0)\] \u@\h$(__git_ps1 " (on \e[0;35m\]%s\[\e[0m\])"):\n'
+PS1='\n\e[0;33m\w\e[m\n\[\033[38;5;37m\]\@\[$(tput sgr0)\] \u@\h$(__git_ps1 " (on \e[0;35m\]%s\[\e[0m\])"):\n▶ '
 # PS1='\n\e[0;33m\w\e[m\n\u@\h $(__git_ps1 "(on \e[0;35m\]%s\[\e[0m\]) ")sez:\n'
 # PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 

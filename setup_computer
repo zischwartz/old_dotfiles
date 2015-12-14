@@ -8,3 +8,7 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # Referenced in bash_profile
 # dvm, docker version manager
 curl -sL https://download.getcarina.com/dvm/latest/install.sh | sh
+
+# curl -sL https://github.com/downloads/whomwah/qlstephen/QLStephen.qlgenerator.zip
+# mkdir ~/Library/QuickLook
+# cp 
