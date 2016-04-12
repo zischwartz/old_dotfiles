@@ -7,6 +7,8 @@ alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 alias serve='python -m SimpleHTTPServer'
 alias sserve='twistd -n web -p 8887 --path .'
 
+# trying it out XXX
+alias git=hub
 
 # docker stuff
 alias dmstart='docker-machine restart dev && dme && echo "🌊 🐋 Docker machine env set. IP copied to clipboard. " && dmi | pbcopy'

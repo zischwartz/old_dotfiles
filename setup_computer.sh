@@ -1,3 +1,4 @@
+# WIP
 
 # Disable annoying warning 
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
@@ -9,6 +10,13 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # dvm, docker version manager
 curl -sL https://download.getcarina.com/dvm/latest/install.sh | sh
 
+
+# that nice quicklook thing
 # curl -sL https://github.com/downloads/whomwah/qlstephen/QLStephen.qlgenerator.zip
 # mkdir ~/Library/QuickLook
-# cp 
+# cp ... #eek
+
+
+# github stuff that's nice
+# brew install ghi
+# brew install hub
