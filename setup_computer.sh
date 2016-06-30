@@ -1,6 +1,9 @@
 # WIP
 
-# Disable annoying warning 
+# install pathogen for vim
+mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+# Disable annoying warning
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 # A lot of my bash_profile will break if dependencies aren't installed
@@ -8,7 +11,7 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 # Referenced in bash_profile
 # dvm, docker version manager
-curl -sL https://download.getcarina.com/dvm/latest/install.sh | sh
+# curl -sL https://download.getcarina.com/dvm/latest/install.sh | sh
 
 
 # that nice quicklook thing
