@@ -7,13 +7,7 @@ alias serve='python -m SimpleHTTPServer'
 alias sserve='twistd -n web -p 8887 --path .'
 
 # trying it out XXX
-# alias git=hub
-
-# docker stuff
-# alias dmstart='docker-machine restart dev && dme && echo "🌊 🐋 Docker machine env set. IP copied to clipboard. " && dmi | pbcopy'
-# alias dme='eval "$(docker-machine env dev)"'
-# alias dmi='docker-machine ip dev'
-# alias dms='docker-machine status dev'
+alias git=hub
 
 alias dockerkillall='docker kill $(docker ps -q)'
 alias dockerrmlast='docker rm -f  $(docker ps -aq | head -1)'
@@ -21,14 +15,11 @@ alias dockerloglast='docker logs -f  $(docker ps -q | head -1)'
 alias dockercleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
 alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
 
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+
 
 # my own bin!
 export PATH=$PATH:~/bin
-
-# ORM WORK SPECIFIC
-# export CARINA_USERNAME=makerpressadmin
-# export CARINA_APIKEY=8b0fbb4d749c460b9e3fc43f41ef2142
-
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
@@ -47,10 +38,6 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 #     . `brew --prefix`/etc/bash_completion
 # fi
 
-# more docker fun times
-# source /Users/zach/.dvm/dvm.sh
-# dvm use 1.9.0
-
 # PS1="\n\e[0;33m\w\e[m\n\u@\h  sez:\n"
 PS1='\n\e[0;33m\w\e[m\n\[\033[38;5;37m\]\@\[$(tput sgr0)\] \u@\h$(__git_ps1 " (on \e[0;35m\]%s\[\e[0m\])"):\n▶ '
 # PS1='\n\e[0;33m\w\e[m\n\u@\h $(__git_ps1 "(on \e[0;35m\]%s\[\e[0m\]) ")sez:\n'
@@ -60,8 +47,6 @@ git config --global color.ui true
 alias gitlg="git log --pretty=format:'%C(yellow)%h%Cred%d%Creset - %C(cyan)%an %Creset: %s %Cgreen(%cr)'"
 
 alias s="git status -s"
-
-# alias vgs='vagrant global-status'
 
 function rm () {
   local path

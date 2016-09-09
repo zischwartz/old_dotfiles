@@ -19,7 +19,9 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # mkdir ~/Library/QuickLook
 # cp ... #eek
 
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 
 # github stuff that's nice
-# brew install ghi
-# brew install hub
+ brew install ghi
+ brew install hub
