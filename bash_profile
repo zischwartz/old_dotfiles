@@ -17,6 +17,7 @@ alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(
 
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 
+export GHI_PAGER=cat
 
 # my own bin!
 export PATH=$PATH:~/bin
