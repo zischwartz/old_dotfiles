@@ -3,6 +3,10 @@ alias ls='ls -F'
 alias ll='ls -l -h'
 alias la='ls -a'
 
+# sierra mac os ssh-agent issue
+# https://github.com/lionheart/openradar-mirror/issues/15361#issuecomment-267367902
+{ eval `ssh-agent`; ssh-add -A; } &>/dev/null
+
 alias serve='python -m SimpleHTTPServer'
 alias sserve='twistd -n web -p 8887 --path .'
 
@@ -89,3 +93,8 @@ source ~/.git-prompt.sh
 # alias workerstage="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.86.237.24"
 # alias workerprod="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.164.101.249"
 # alias workerbeta="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.173.233.166"
+
+# Setting PATH for Python 3.5
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
+export PATH

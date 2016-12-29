@@ -3,25 +3,22 @@
 # install pathogen for vim
 mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
-# Disable annoying warning
+# Disable annoying warning about changing your extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-# A lot of my bash_profile will break if dependencies aren't installed
-# Plus, why not install stuff automatically on a new machine
+# removed old docker stuff now that there's docker for mac.
+# TODO automate dfm, I guess brew+cask
 
-# Referenced in bash_profile
-# dvm, docker version manager
-# curl -sL https://download.getcarina.com/dvm/latest/install.sh | sh
-
-
-# that nice quicklook thing
-# curl -sL https://github.com/downloads/whomwah/qlstephen/QLStephen.qlgenerator.zip
-# mkdir ~/Library/QuickLook
-# cp ... #eek
-
+# get brew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# and cask
+brew tap caskroom/cask
+# some nice quicklook plugins, based on https://github.com/sindresorhus/quick-look-plugins
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize suspicious-package qlvideo
 
+# some nice node utils
+# but actually, you should install node first! TODO
+# npm install --global pretty-bytes-cli gzip-size-cli
 
 # github stuff that's nice
- brew install ghi
- brew install hub
+ brew install ghi hub
