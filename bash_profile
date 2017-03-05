@@ -3,6 +3,9 @@ alias ls='ls -F'
 alias ll='ls -l -h'
 alias la='ls -a'
 
+# teehee
+alias weather='curl wttr.in/brooklyn_ny'
+
 # sierra mac os ssh-agent issue
 # https://github.com/lionheart/openradar-mirror/issues/15361#issuecomment-267367902
 { eval `ssh-agent`; ssh-add -A; } &>/dev/null
