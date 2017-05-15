@@ -5,11 +5,11 @@
 	name = Zach Schwartz
 [core]
 	excludesfile = ~/.git-ignore-global
-
 [alias]
   ac = !git add -A && git commit
 	pom = push origin master
 	plo = pull origin
+	set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
 [push]
 	default = current
 [github]

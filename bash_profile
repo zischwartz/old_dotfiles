@@ -6,6 +6,10 @@ alias la='ls -a'
 # teehee
 alias weather='curl wttr.in/brooklyn_ny'
 
+# recursively print what's in the cwd,  via http://askubuntu.com/a/431252
+alias rpfiles="find . | sed 's|[^/]*/|- |g'"
+alias rpdirs="find . -type d | sed -e 's/[^-][^\/]*\//  |/g' -e 's/|\([^ ]\)/|-\1/'"
+
 # sierra mac os ssh-agent issue
 # https://github.com/lionheart/openradar-mirror/issues/15361#issuecomment-267367902
 { eval `ssh-agent`; ssh-add -A; } &>/dev/null
@@ -13,7 +17,6 @@ alias weather='curl wttr.in/brooklyn_ny'
 alias serve='python -m SimpleHTTPServer'
 alias sserve='twistd -n web -p 8887 --path .'
 
-# trying it out XXX
 alias git=hub
 
 alias dockerkillall='docker kill $(docker ps -q)'
@@ -22,12 +25,31 @@ alias dockerloglast='docker logs -f  $(docker ps -q | head -1)'
 alias dockercleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
 alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
 
+# via https://docs.docker.com/docker-for-mac/docker-toolbox/#setting-up-to-run-docker-for-mac
+# once you've connected via docker-machine, use this to go back to docker for mac
+alias docker4mac='unset DOCKER_TLS_VERIFY; unset DOCKER_CERT_PATH; unset DOCKER_MACHINE_NAME; unset DOCKER_HOST'
+
+# to run gui apps from within docker
+# https://github.com/chanezon/docker-tips/tree/master/x11
+# XXX requires `brew install Caskroom/cask/xquartz`
+# double XXX couldn't get this to work, giving up for now
+# export DISPLAY_MAC=`ifconfig en0 | grep "inet " | cut -d " " -f2`:0
+# function startx() {
+# 	if [ -z "$(ps -ef|grep XQuartz|grep -v grep)" ] ; then
+# 	    open -a XQuartz
+#         socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\" &
+# 	fi
+# }
+
+
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 
 export GHI_PAGER=cat
 
 # my own bin!
 export PATH=$PATH:~/bin
+# http://jruby.org/#2
+# export PATH=$PATH:/Library/jruby-9.1.8.0/bin
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
@@ -35,6 +57,15 @@ export PATH=$PATH:$GOPATH/bin
 export GOREILLY="src/github.com/oreillymedia"
 alias goreilly="cd $GOPATH/$GOREILLY"
 alias zo="cd $GOPATH/src/github.com/zischwartz"
+
+# for android dev, for BKR project sphere thing,
+# http://stackoverflow.com/questions/18144660/what-is-path-of-jdk-on-mac
+# ran > /usr/libexec/java_home to get this string
+# export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home"
+# export ANDROID_HOME="/Users/zach/code/vendor/androidsdk"
+# export ANDROID_SDK_ROOT="/Users/zach/code/vendor/androidsdk"
+# export PATH=$PATH:"/Users/zach/code/vendor/androidsdk/tools"
+# export PATH=$PATH:"/Users/zach/code/vendor/androidsdk/platform-tools"
 
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
