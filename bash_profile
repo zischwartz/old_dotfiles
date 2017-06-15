@@ -78,9 +78,12 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 # fi
 
 # PS1="\n\e[0;33m\w\e[m\n\u@\h  sez:\n"
-PS1='\n\e[0;33m\w\e[m\n\[\033[38;5;37m\]\@\[$(tput sgr0)\] \u@\h$(__git_ps1 " (on \e[0;35m\]%s\[\e[0m\])"):\n▶ '
 # PS1='\n\e[0;33m\w\e[m\n\u@\h $(__git_ps1 "(on \e[0;35m\]%s\[\e[0m\]) ")sez:\n'
 # PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+
+# Current
+# PS1='\n\e[0;33m\w\e[m\n\[\033[38;5;37m\]\@\[$(tput sgr0)\] \u@\h$(__git_ps1 " (on \e[0;35m\]%s\[\e[0m\])"):\n▶ '
+PS1='\n\e[0;33m\w\e[m\n\[\033[38;5;37m\]\@\[$(tput sgr0)\] \u@\h$(__git_ps1 " (on \e[0;35m\]%s\[\e[0m\])")\[\e[33m\]$(__docker_machine_ps1)\[\e[m:\n▶ '
 
 git config --global color.ui true
 alias gitlg="git log --pretty=format:'%C(yellow)%h%Cred%d%Creset - %C(cyan)%an %Creset: %s %Cgreen(%cr)'"
@@ -109,6 +112,10 @@ source ~/.git-completion.sh
 # from https://github.com/git/git/tree/master/contrib/completion
 source ~/.git-prompt.sh
 # https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
+
+# $(__docker_machine_ps1)
+# http://blog.scottlowe.org/2016/03/28/adding-git-docker-machine-awareness-osx/
+source ~/.docker-machine-prompt
 
 
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

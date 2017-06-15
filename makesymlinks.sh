@@ -12,7 +12,8 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bash_profile git-completion.sh git-prompt.sh gitconfig vimrc git-ignore-global inputrc"    # list of files/folders to symlink in homedir
+# XXX this needs to be updated when you add stuff
+files="bash_profile git-completion.sh git-prompt.sh gitconfig vimrc git-ignore-global inputrc docker-machine-prompt"    # list of files/folders to symlink in homedir
 
 ##########
 
