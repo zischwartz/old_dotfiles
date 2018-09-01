@@ -4,7 +4,7 @@ alias ll='ls -l -h'
 alias la='ls -a'
 
 # teehee
-alias weather='curl wttr.in/brooklyn_ny'
+alias weather='curl wttr.in/brooklyn'
 
 # recursively print what's in the cwd,  via http://askubuntu.com/a/431252
 alias rpfiles="find . | sed 's|[^/]*/|- |g'"

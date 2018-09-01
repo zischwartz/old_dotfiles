@@ -21,4 +21,8 @@ brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch 
 # npm install --global pretty-bytes-cli gzip-size-cli
 
 # github stuff that's nice
- brew install ghi hub
+brew install ghi hub
+# a nice cat replacement with syntax highlighting
+brew install bat
+# make a screenshot folder, should make sure it exists XXX
+defaults write com.apple.screencapture location /Users/zach/Desktop/screenshots
