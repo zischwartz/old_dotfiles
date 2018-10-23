@@ -3,6 +3,8 @@ alias ls='ls -F'
 alias ll='ls -l -h'
 alias la='ls -a'
 
+alias imessage='~/dotfiles/imessage.sh'
+
 # teehee
 alias weather='curl wttr.in/brooklyn'
 
