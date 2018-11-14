@@ -119,6 +119,11 @@ source ~/.git-prompt.sh
 # http://blog.scottlowe.org/2016/03/28/adding-git-docker-machine-awareness-osx/
 source ~/.docker-machine-prompt
 
+# use the built in completer for aws cli
+# of course this requires aws cli
+complete -C aws_completer aws
+
+
 
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 

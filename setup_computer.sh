@@ -26,3 +26,6 @@ brew install ghi hub
 brew install bat
 # make a screenshot folder, should make sure it exists XXX
 defaults write com.apple.screencapture location /Users/zach/Desktop/screenshots
+
+# aws cli
+pip install --user awscli
