@@ -123,6 +123,10 @@ source ~/.docker-machine-prompt
 # of course this requires aws cli
 complete -C aws_completer aws
 
+# trying this out, in theory this writes to my bash history immediately instead of only on close
+# https://askubuntu.com/a/67306
+shopt -s histappend
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
