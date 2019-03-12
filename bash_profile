@@ -60,14 +60,6 @@ export GOREILLY="src/github.com/oreillymedia"
 alias goreilly="cd $GOPATH/$GOREILLY"
 alias zo="cd $GOPATH/src/github.com/zischwartz"
 
-# for android dev, for BKR project sphere thing,
-# http://stackoverflow.com/questions/18144660/what-is-path-of-jdk-on-mac
-# ran > /usr/libexec/java_home to get this string
-# export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home"
-# export ANDROID_HOME="/Users/zach/code/vendor/androidsdk"
-# export ANDROID_SDK_ROOT="/Users/zach/code/vendor/androidsdk"
-# export PATH=$PATH:"/Users/zach/code/vendor/androidsdk/tools"
-# export PATH=$PATH:"/Users/zach/code/vendor/androidsdk/platform-tools"
 
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
@@ -88,7 +80,8 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 PS1='\n\e[0;33m\w\e[m\n\[\033[38;5;37m\]\@\[$(tput sgr0)\] \u@\h$(__git_ps1 " (on \e[0;35m\]%s\[\e[0m\])")\[\e[33m\]$(__docker_machine_ps1)\[\e[m:\n▶ '
 
 git config --global color.ui true
-alias gitlg="git log --pretty=format:'%C(yellow)%h%Cred%d%Creset - %C(cyan)%an %Creset: %s %Cgreen(%cr)'"
+alias gitlg="git log --pretty=format:'%C(yellow)%h%Cred%d%Creset - %C(cyan)%an %Creset: %s %Cgreen(%cr)' -$(expr $(tput lines) - 8)"
+alias gitlga="git log --pretty=format:'%C(yellow)%h%Cred%d%Creset - %C(cyan)%an %Creset: %s %Cgreen(%cr)'"
 
 alias s="git status -s"
 
@@ -129,24 +122,18 @@ shopt -s histappend
 PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-### Added by the Heroku Toolbelt
-# export PATH="/usr/local/heroku/bin:$PATH"
-# export PATH="$HOME/.rbenv/bin:$PATH"
-# eval "$(rbenv init -)"
-#
-# export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
-#
-# alias orbot="ssh -i ~/.ssh/atlas/orbot_keypair.pem ubuntu@54.174.14.69"
-# alias contentloader="ssh -i ~/.ssh/atlas/orbot_keypair.pem ubuntu@54.86.226.133"
-# alias gitprod="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.84.204.203"
-# alias gitdev="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.84.249.148"
-# alias workerstage="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.86.237.24"
-# alias workerprod="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.164.101.249"
-# alias workerbeta="ssh -i ~/.ssh/atlas/atlas_production_keypair.pem ubuntu@54.173.233.166"
 
 # Setting PATH for Python 3.5
 # The original version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
+export PATH
+
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH
+
+# Setting PATH for Python 3.7
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
 export PATH
