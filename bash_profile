@@ -2,6 +2,7 @@
 alias ls='ls -F'
 alias ll='ls -l -h'
 alias la='ls -a'
+alias lss='du -sh *'
 
 alias imessage='~/dotfiles/imessage.sh'
 
@@ -50,6 +51,7 @@ export GHI_PAGER=cat
 
 # my own bin!
 export PATH=$PATH:~/bin
+export PATH=$PATH:/usr/local/sbin
 # http://jruby.org/#2
 # export PATH=$PATH:/Library/jruby-9.1.8.0/bin
 
@@ -75,15 +77,26 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 # PS1='\n\e[0;33m\w\e[m\n\u@\h $(__git_ps1 "(on \e[0;35m\]%s\[\e[0m\]) ")sez:\n'
 # PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
-# Current
+
 # PS1='\n\e[0;33m\w\e[m\n\[\033[38;5;37m\]\@\[$(tput sgr0)\] \u@\h$(__git_ps1 " (on \e[0;35m\]%s\[\e[0m\])"):\n▶ '
-PS1='\n\e[0;33m\w\e[m\n\[\033[38;5;37m\]\@\[$(tput sgr0)\] \u@\h$(__git_ps1 " (on \e[0;35m\]%s\[\e[0m\])")\[\e[33m\]$(__docker_machine_ps1)\[\e[m:\n▶ '
+
+# Current
+# PS1='\n\e[0;33m\w\e[m\n\[\033[38;5;37m\]\@\[$(tput sgr0)\] \u@\h$(__git_ps1 " (on \e[0;35m\]%s\[\e[0m\])")\[\e[33m\]$(__docker_machine_ps1)\[\e[m:\n▶ '
+
+# with aws thing
+PS1='\n\e[0;33m\w\e[m\n\[\033[38;5;37m\]\@\[$(tput sgr0)\] \u@\h$(__git_ps1 " (on \e[0;35m\]%s\[\e[0m\])")\[\e[33m\]\e[31;46m\]$AWS_DEFAULT_PROFILE\[\e[m\]\[\e[m:\n▶ '
+
+# just my aws thing, added above
+# PS1='\e[31;46m\]`\$AWS_DEFAULT_PROFILE`\[\e[m\]'
 
 git config --global color.ui true
 alias gitlg="git log --pretty=format:'%C(yellow)%h%Cred%d%Creset - %C(cyan)%an %Creset: %s %Cgreen(%cr)' -$(expr $(tput lines) - 8)"
 alias gitlga="git log --pretty=format:'%C(yellow)%h%Cred%d%Creset - %C(cyan)%an %Creset: %s %Cgreen(%cr)'"
 
 alias s="git status -s"
+
+# based on $AWS_DEFAULT_PROFILE
+alias awswho="aws iam get-user"
 
 function rm () {
   local path
@@ -137,3 +150,9 @@ export PATH
 # The original version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
 export PATH
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/zach/google-cloud-sdk/path.bash.inc' ]; then . '/Users/zach/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/zach/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/zach/google-cloud-sdk/completion.bash.inc'; fi

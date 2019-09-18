@@ -16,6 +16,12 @@ brew tap caskroom/cask
 # some nice quicklook plugins, based on https://github.com/sindresorhus/quick-look-plugins
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize suspicious-package qlvideo
 
+# needs to be sudo, this fixes issues later on with things installed with brew
+
+echo "You should create these directories and change their ownership to your account.
+   sudo mkdir -p /usr/local/sbin
+   sudo chown -R $(whoami) /usr/local/sbin"
+
 # some nice node utils
 # but actually, you should install node first! TODO
 # npm install --global pretty-bytes-cli gzip-size-cli
