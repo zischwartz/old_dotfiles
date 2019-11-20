@@ -16,6 +16,10 @@ brew tap caskroom/cask
 # some nice quicklook plugins, based on https://github.com/sindresorhus/quick-look-plugins
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv qlimagesize suspicious-package qlvideo
 
+# can't use cask for this one !
+echo "https://github.com/tuxu/ipynb-quicklook"
+# https://github.com/tuxu/ipynb-quicklook
+
 # needs to be sudo, this fixes issues later on with things installed with brew
 
 echo "You should create these directories and change their ownership to your account.
