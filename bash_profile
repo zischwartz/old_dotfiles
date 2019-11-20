@@ -156,3 +156,6 @@ if [ -f '/Users/zach/google-cloud-sdk/path.bash.inc' ]; then . '/Users/zach/goog
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/zach/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/zach/google-cloud-sdk/completion.bash.inc'; fi
+
+
+export BASH_SILENCE_DEPRECATION_WARNING=1
