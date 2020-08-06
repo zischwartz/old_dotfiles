@@ -1,4 +1,7 @@
 
+# https://github.com/mixonic/docs.npmjs.com/blob/master/content/getting-started/fixing-npm-permissions.md#option-2-change-npms-default-directory-to-another-directory
+export PATH=~/npm-global/bin:$PATH
+
 alias ls='ls -F'
 alias ll='ls -l -h'
 alias la='ls -a'
