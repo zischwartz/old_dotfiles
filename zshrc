@@ -14,6 +14,9 @@
 # based on $AWS_DEFAULT_PROFILE
 alias awswho="aws iam get-user"
 
+# assumes hub is installed !
+# alias git=hub
+
 # just some nice helpers
 alias ls='ls -F'
 alias ll='ls -l -h'
@@ -78,7 +81,8 @@ bindkey "\e[B" history-beginning-search-forward
 # https://github.com/olivierverdier/zsh-git-prompt#install
 source ~/dotfiles/zsh-git-prompt-master/zshrc.sh
 # the prompt
-PROMPT="%B%m%~%b$(git_super_status)%t"$'\n'"▶ "
+NEWLINE=$'\n'
+PROMPT='%B%m%~%b$(git_super_status)%t${NEWLINE}▶'
 
 
 # https://stackoverflow.com/a/26479426
