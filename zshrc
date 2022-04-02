@@ -6,6 +6,13 @@
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# for android studio
+[ -d "$HOME/Library/Android/sdk" ] && ANDROID_SDK=$HOME/Library/Android/sdk || ANDROID_SDK=$HOME/Android/Sdk
+echo "export ANDROID_SDK=$ANDROID_SDK" >> ~/`[[ $SHELL == *"zsh" ]] && echo '.zshenv' || echo '.bash_profile'`
+
+echo "export PATH=$HOME/Library/Android/sdk/platform-tools:\$PATH" >> ~/`[[ $SHELL == *"zsh" ]] && echo '.zshenv' || echo '.bash_profile'`
+
+
 # move to setup_computer.sh
 # defaults write com.apple.finder AppleShowAllFiles -boolean true;
 # defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
@@ -46,22 +53,7 @@ alias awswho="aws iam get-user"
 # PS1='\n\e[0;33m\w\e[m\n\[\03d3[38;5;37m\]\@\[$(tput sgr0)\] \u@\h$(__git_ps1 " (on \e[0;35m\]%s\[\e[0m\])")\[\e[33m\]$(__docker_machine_ps1)\[\e[m:\n▶ '
 
 # allow deletion of dirs - and put stuff in trash
-# added /bin/ to mv so it works in zsh
-function rm () {
-  local path
-  for path in "$@"; do
-    # ignore any arguments
-    if [[ "$path" = -* ]]; then :
-    else
-      local dst=${path##*/}
-      # append the time if necessary
-      while [ -e ~/.Trash/"$dst" ]; do
-        dst="$dst "$(date +%H-%M-%S)
-      done
-      /bin/mv "$path" ~/.Trash/"$dst"
-    fi
-  done
-}
+
 
 
 # these *were* in input rc
@@ -77,13 +69,14 @@ bindkey "\e[B" history-beginning-search-forward
 
 
 # and this is the git ui enhancements, equiv was in bash_profile
-
 # https://github.com/olivierverdier/zsh-git-prompt#install
 source ~/dotfiles/zsh-git-prompt-master/zshrc.sh
 # the prompt
 NEWLINE=$'\n'
 PROMPT='%B%m%~%b$(git_super_status)%t${NEWLINE}▶'
 
+# FIX FOR ZSH GIT PROMPT  https://github.com/olivierverdier/zsh-git-prompt/issues/153#issuecomment-1070452245
+alias python=/usr/local/bin/python3
 
 # https://stackoverflow.com/a/26479426
 # autoload -U compinit && compinit
@@ -103,3 +96,17 @@ if [ -f '/Users/zach/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/zach/googl
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/zach/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/zach/google-cloud-sdk/completion.zsh.inc'; fi
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
+export COCOS_CONSOLE_ROOT="/Users/zach/Downloads/cocos2d-x-4.0/tools/cocos2d-console/bin"
+export PATH=$COCOS_CONSOLE_ROOT:$PATH
+
+# Add environment variable COCOS_X_ROOT for cocos2d-x
+export COCOS_X_ROOT="/Users/zach/Downloads"
+export PATH=$COCOS_X_ROOT:$PATH
+
+# Add environment variable COCOS_TEMPLATES_ROOT for cocos2d-x
+export COCOS_TEMPLATES_ROOT="/Users/zach/Downloads/cocos2d-x-4.0/templates"
+export PATH=$COCOS_TEMPLATES_ROOT:$PATH
